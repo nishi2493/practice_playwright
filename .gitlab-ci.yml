@@ -1,0 +1,12 @@
+playwright_tests:
+  stage: test
+
+  script:
+    - pip install -r requirements.txt
+    - playwright install --with-deps
+    - pytest --html=report.html
+
+  artifacts:
+    when: always
+    paths:
+      - report.html
